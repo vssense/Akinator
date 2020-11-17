@@ -1,0 +1,9 @@
+digraph G{
+node [shape="record", style="filled", fillcolor="#AED8D5", color="#000000"]
+"00B80F20"[label="живое"]"00B80F20":sw->"00B80FB0"[color="#210202", label="no"];
+"00B80FB0"[label="магнитофон"]"00B80F20":se->"00B80F38"[color="#011504", label="yes"];
+"00B80F38"[label="человек"]"00B80F38":sw->"00B80F98"[color="#210202", label="no"];
+"00B80F98"[label="кошка"]"00B80F38":se->"00B80F50"[color="#011504", label="yes"];
+"00B80F50"[label="студент"]"00B80F50":sw->"00B80F80"[color="#210202", label="no"];
+"00B80F80"[label="дед"]"00B80F50":se->"00B80F68"[color="#011504", label="yes"];
+"00B80F68"[label="зеленкин"]}

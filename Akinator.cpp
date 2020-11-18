@@ -90,7 +90,6 @@ int main(const int argc, const char* argv[])
 	AkiTree* tree = GetTree(argc, argv[1]);
 	
 	printf("\nHello! It is akinator. I can guess your word!\n");
-	//txSpeak("Почему оно не работает");
 
 	while (true)
 	{
@@ -272,7 +271,7 @@ void PrintNodes(AkiTree* tree, Node* node, FILE* dump_file)
 {
 	if (node->right != tree->NIL && node->left != tree->NIL)
 	{
-		fprintf(dump_file, "\"%p\"[shape=\"record\", label=\"%s\"]\n", node, node->data);
+		fprintf(dump_file, "\"%p\"[shape=\"record\", label=\"%s?\"]\n", node, node->data);
 	}
 	else
 	{

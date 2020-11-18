@@ -7,13 +7,14 @@
 
 #include "ReadFile.cpp"
 
+
 const int DOT_CMD_SIZE = 40;
 const int JPG_CMD_SIZE = 20;
 const int ANSWER_SIZE = 50;
 const int DEFINITION_SIZE = 25;
 const int FILE_IS_NOT_EXIST = 0xFFFFFFFF;
 
-const char* STANDARD_NAME = "AkinatorData.txt";            //TODO You cant put the same word twice, txSpeak	
+const char* STANDARD_NAME = "AkinatorData.txt";
 
 enum TreeStatus
 {
@@ -89,6 +90,7 @@ int main(const int argc, const char* argv[])
 	AkiTree* tree = GetTree(argc, argv[1]);
 	
 	printf("\nHello! It is akinator. I can guess your word!\n");
+	//txSpeak("Почему оно не работает");
 
 	while (true)
 	{
@@ -98,7 +100,7 @@ int main(const int argc, const char* argv[])
 			   "Print definition                   : [D]\n"
 			   "Compare two words                  : [C]\n"
 			   "Save Data                          : [S]\n"
-			   "Open akinator's tree               : [O]\n"
+			   "Open akinator's tree(only with dot): [O]\n"
 			   "Load another data                  : [N]\n"
 			   "Exit                               : [X]\n\n", 
 			   tree->FileName);
@@ -268,7 +270,14 @@ size_t GetJPGNumber()
 
 void PrintNodes(AkiTree* tree, Node* node, FILE* dump_file)
 {
-	fprintf(dump_file, "\"%p\"[label=\"%s\"]\n", node, node->data);
+	if (node->right != tree->NIL && node->left != tree->NIL)
+	{
+		fprintf(dump_file, "\"%p\"[shape=\"record\", label=\"%s\"]\n", node, node->data);
+	}
+	else
+	{
+		fprintf(dump_file, "\"%p\"[shape=\"pentagon\", label=\"%s\"]\n", node, node->data);	
+	}
 	
 	if (node->left != tree->NIL)
 	{
@@ -356,7 +365,7 @@ void GetNodes(AkiTree* tree, Node* node, Text* text, size_t ofs)
 		return;
 	}
 
-	while (strchr(text->lines[ofs].str, '}'))
+	while (strchr(text->lines[ofs].str, '}') && ofs < text->num_str - 1)
 	{
 		node = node->parent;
 		ofs++;
@@ -376,7 +385,6 @@ void GetString(Node* node, const char* str)
 {
 	node->data = strchr(str, '"') + 1;
 	char* tmp  = strchr(node->data, '"');
-	
 	if (tmp != nullptr) 
 	{
 		tmp[0] = '\0';
@@ -490,7 +498,7 @@ void GetNewDefinition(AkiTree* tree, Node* node)
 	node->left->data = node->data;
 	node->right->data = definition;
 
-	printf("What differences between %s and %s?\n", 
+	printf("What are differences between %s and %s?\n", 
 			node->right->data, node->left->data);
 	printf("%s (is) ...\n", node->right->data);
 
@@ -508,6 +516,7 @@ void GetNewDefinition(AkiTree* tree, Node* node)
 
 void PrintDefinition(AkiTree* tree)
 {
+	printf("Print word, please\n");
 	char* definition = (char*)calloc(DEFINITION_SIZE, sizeof(char));
 	scanf("\n");
 	fgets(definition, DEFINITION_SIZE, stdin);
@@ -589,6 +598,7 @@ void FillStack(Stack* stack, AkiTree* tree, Node* node)
 
 void CompareWords(AkiTree* tree)
 {
+	printf("print two words with enter, please\n");
 	char* definition1 = (char*)calloc(DEFINITION_SIZE, sizeof(char));
 	scanf("\n");
 	fgets(definition1, DEFINITION_SIZE, stdin);
@@ -621,7 +631,7 @@ void CompareWords(AkiTree* tree)
 	FillStack(&stack1, tree, tmp1);
 	FillStack(&stack2, tree, tmp2);
 
-	printf("Similarities:\n\t");
+	printf("Similarities:\nBoth are ");
 	PrintDifferences(&stack1, &stack2, definition1, definition2);
 
 	Destroy(&stack1);

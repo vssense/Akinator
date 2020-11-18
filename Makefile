@@ -1,6 +1,6 @@
 options = -Wall -Wpedantic -Wextra
 
-input = AkinatorData.txt
+input = Data.txt
 
 run : Akinator.exe
 	Akinator.exe $(input)

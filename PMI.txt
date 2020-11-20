@@ -18,7 +18,13 @@
 "maincraft"
 }
 {
+"not alive"
+{
+"inheritance"
+}
+{
 "nelena"
+}
 }
 }
 }
@@ -30,17 +36,17 @@
 "encapsulation"
 }
 {
-"can dead"
+"can die"
 {
 "IVT"
 }
 {
-"not alive"
-{
-"java"
-}
+"alive"
 {
 "ded"
+}
+{
+"java"
 }
 }
 }
@@ -60,7 +66,13 @@
 {
 "adequate"
 {
+"vedet algosy"
+{
+"artur"
+}
+{
 "algosy"
+}
 }
 {
 "made from cardboard"
@@ -74,7 +86,19 @@
 }
 }
 {
+"drunk"
+{
+"always drunk"
+{
+"MTUSI"
+}
+{
+"RT"
+}
+}
+{
 "arkasha"
+}
 }
 }
 }
@@ -101,7 +125,19 @@
 {
 "human resembling"
 {
+"passed session"
+{
+"session"
+}
+{
+"usefull"
+{
+"fridge"
+}
+{
 "B05-032"
+}
+}
 }
 {
 "delicious food"
@@ -114,7 +150,13 @@
 "tarakan"
 }
 {
+"human"
+{
 "ivanova"
+}
+{
+"staty"
+}
 }
 }
 }
@@ -123,7 +165,13 @@
 {
 "wooden"
 {
+"could be prayed on"
+{
+"wooden statuette of raigor"
+}
+{
 "door"
+}
 }
 {
 "cute"
@@ -153,7 +201,13 @@
 "Akinator"
 }
 {
+"material"
+{
 "poltorashka"
+}
+{
+"segment-tree"
+}
 }
 }
 }
@@ -166,7 +220,13 @@
 "dolbojob"
 }
 {
+"áontinues on musatych"
+{
+"sleep"
+}
+{
 "musatych"
+}
 }
 }
 }

@@ -1,1 +1,19 @@
-"Ufa"
+"sekasniy"
+{
+	"zhivoy"
+	{
+		"natural"
+		{
+			"vasya"
+		}
+		{
+			"serega"
+		}
+	}
+	{
+	"ZALUPA"
+	}
+}
+{
+	"Yoy"
+}

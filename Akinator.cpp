@@ -7,14 +7,24 @@
 
 #include "ReadFile.cpp"
 
-
 const int DOT_CMD_SIZE = 40;
 const int JPG_CMD_SIZE = 20;
-const int ANSWER_SIZE = 50;
-const int DEFINITION_SIZE = 25;
+const int ANSWER_SIZE = 64;
+const int DEFINITION_SIZE = 64;
 const int FILE_IS_NOT_EXIST = 0xFFFFFFFF;
 
 const char* STANDARD_NAME = "AkinatorData.txt";
+
+#define AKI_SPEAK
+
+#ifdef AKI_SPEAK
+const int SAY_BUFFER_SIZE = 256;
+const int SPEAK_CMD_SIZE = 120;
+const char* SPEAK_CMD = "PowerShell -Command \"Add-Type -AssemblyName"
+						"System.Speech;(New-Object System.Speech.Synt"
+						"hesis.SpeechSynthesizer).Speak('";
+const char* END_OF_SPEAK_CMD = "\"');";
+#endif
 
 enum TreeStatus
 {
@@ -73,22 +83,30 @@ void     StartGame                 (AkiTree* tree, Node* node);
 bool     GetAnswer                 ();
 void     EndGame                   (AkiTree* tree, Node* node);
 void     GetNewDefinition          (AkiTree* tree, Node* node);
+void     SetQuestion               (char* buffer, Node* node);
 void     PrintDefinition           (AkiTree* tree);
 Node*    TraverceSearch            (AkiTree* tree, Node* node, char* definition);
 void     WriteDefinition           (AkiTree* tree, Node* node);
 void     WriteDefinitionRecursively(Stack* stack, Node* node);
-void     FillStack                 (Stack* stack, AkiTree* tree, Node* node);
 void     CompareWords              (AkiTree* tree);
 void     PrintDifferences          (Stack* stack1, Stack* stack2, char* definition1, char* definition2);
 void     ChangeData                (AkiTree** tree);
 void     Save                      (AkiTree* tree);
+
+/////////////////////////////
+//other
+/////////////////////////////
+void     FillStack                 (Stack* stack, AkiTree* tree, Node* node);
 void     DeleteAllAfterChar        (char* buffer, char symbol);
+void     Say                       (const char* format, ...);
 
 
 int main(const int argc, const char* argv[])
 {
 	AkiTree* tree = GetTree(argc, argv[1]);
-	
+
+	Say("Hello! It is akinator.\n\t I can guess your word!");
+
 	printf("\nHello! It is akinator. I can guess your word!\n");
 
 	while (true)
@@ -440,12 +458,12 @@ bool GetAnswer()
 	{
 		scanf("%s", answer);
 
-		if (strcmp(answer, "yes") == 0 || answer[0] == '+' || answer[0] == 'y')
+		if (strcmpi(answer, "yes") == 0 || answer[0] == '+' || answer[0] == 'y')
 		{
 			result = true;
 			break;
 		}
-		if (strcmp(answer, "no") == 0 || answer[0] == '-' || answer[0] == 'n')
+		if (strcmpi(answer, "no") == 0 || answer[0] == '-' || answer[0] == 'n')
 		{
 			result = false;
 			break;
@@ -507,10 +525,26 @@ void GetNewDefinition(AkiTree* tree, Node* node)
 	
 	DeleteAllAfterChar(buffer, '\n');
 
-	node->data = buffer;
+	SetQuestion(buffer, node);
+
 	tree->status = CHANGED;
 
 	printf("Ok, you won, but now I know this word\n");
+}
+
+void SetQuestion(char* buffer, Node* node)
+{ 
+	if (strstr(buffer, "not") == buffer)
+	{
+		char* tmp = node->right->data;
+		node->right->data = node->left->data;
+		node->left->data = tmp;
+		node->data = buffer + 4;
+	}
+	else
+	{
+		node->data = buffer;
+	}
 }
 
 void PrintDefinition(AkiTree* tree)
@@ -584,15 +618,6 @@ void WriteDefinitionRecursively(Stack* stack, Node* node)
 		printf("not %s, ", node->data);
 	}
 	WriteDefinitionRecursively(stack, child);
-}
-
-void FillStack(Stack* stack, AkiTree* tree, Node* node)
-{
-	while (node != tree->NIL)
-	{
-		push(stack, node);
-		node = node->parent;
-	}
 }
 
 void CompareWords(AkiTree* tree)
@@ -698,13 +723,22 @@ void Save(AkiTree* tree)
 	{
 		FILE* DataFile = fopen(tree->FileName, "w");
 		SaveData(tree, tree->root, DataFile);
-		tree->status = UNCHANGED;
 		fclose(DataFile);
+		tree->status = UNCHANGED;
 		printf("Data was saved\n");
 	}
 	else
 	{
 		printf("Data is ready\n");
+	}
+}
+
+void FillStack(Stack* stack, AkiTree* tree, Node* node)
+{
+	while (node != tree->NIL)
+	{
+		push(stack, node);
+		node = node->parent;
 	}
 }
 
@@ -716,4 +750,53 @@ void DeleteAllAfterChar(char* buffer, char symbol)
 	{
 		tmp[0] = '\0';
 	}
+}
+
+char* FormatToSpeak(const char* format)
+{
+	char* speak_format = (char*)calloc(strlen(format), sizeof(char));
+
+	size_t pos = 0;
+
+	for (size_t i = 0; format[i] != '\0'; ++i)
+	{
+		if (format[i] == '\n' || format[i] == '\t') 
+		{
+			continue;
+		}
+		speak_format[pos++] = format[i];
+	}
+	return speak_format;
+}
+
+void Say(const char* format, ...)
+{
+	va_list args = {};
+	va_start(args, format);
+
+	#ifndef AKI_SPEAK
+
+	vpritnf(format, args);
+	va_end(args);
+	return;
+
+	#endif
+
+	char* buffer = (char*)calloc(SAY_BUFFER_SIZE, sizeof(char));
+
+	char* PrintfBuffer = buffer + SPEAK_CMD_SIZE - 1;
+
+	snprintf(buffer, SPEAK_CMD_SIZE, "%s", SPEAK_CMD);
+
+	char* speak_format = FormatToSpeak(format);
+
+	printf("<%s>\n", format);
+	printf("<%s>\n", speak_format);
+	snprintf(PrintfBuffer, SPEAK_CMD_SIZE, format, args);
+	printf("%s\n", buffer);
+
+
+
+	va_end(args);
+	free(buffer);
 }

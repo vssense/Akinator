@@ -1,3 +1,11 @@
+//-------------------------------------------------------------------
+//! THANKS TO
+//! Nikita
+//! - for team-brainstorming how to use tts the best way possible
+//! - for mentoring my code and for saying it is holy shit
+//-------------------------------------------------------------------
+
+
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>

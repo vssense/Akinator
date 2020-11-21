@@ -2,7 +2,7 @@
 //! THANKS TO
 //! Nikita
 //! - for team-brainstorming how to use tts the best way possible
-//! - for mentoring my code and for saying it is holy shit
+//! - for mentoring my code and for saying it is shit
 //-------------------------------------------------------------------
 
 
@@ -35,7 +35,7 @@ const char* SPEAK_CMD = "PowerShell -Command \"Add-Type -AssemblyName "
                         "System.Speech;(New-Object System.Speech.Synth"
                         "esis.SpeechSynthesizer).Speak('";
 const char* END_OF_SPEAK_CMD = "');\"";
-bool is_turned_on_voice = true;
+bool is_turned_on_voice = false;
 #endif
 
 struct AkiNode
@@ -100,12 +100,13 @@ void     CompareWords              (AkiTree* tree);
 void     PrintDifferences          (Stack* stack1, Stack* stack2, char* definition1, char* definition2);
 void     ChangeData                (AkiTree** tree);
 void     Save                      (AkiTree* tree);
+void     SwitchVoice               ();
 
 /////////////////////////////
 //other
 /////////////////////////////
 void     FillStack                 (Stack* stack, AkiTree* tree, AkiNode* node);
-void     ScanString                 (char* buffer, size_t max_size);
+void     ScanString                (char* buffer, size_t max_size);
 void     DeleteAllAfterChar        (char* buffer, char symbol);
 void     Say                       (const char* format, ...);
 void     FormatToSpeak             (char* buffer);
@@ -180,17 +181,7 @@ int main(const int argc, const char* argv[])
             }
             case 'T':
             {
-                if (is_turned_on_voice)
-                {
-                    is_turned_on_voice = false;
-                    Say("Voice is turned off");
-                }
-                else
-                {
-                    is_turned_on_voice = true;
-                    Say("Voice is turned on");
-                }
-
+                SwitchVoice();
                 break;
             }
             default :
@@ -819,6 +810,20 @@ void Save(AkiTree* tree)
     else
     {
         Say("Data is ready\n");
+    }
+}
+
+void SwitchVoice()
+{
+    if (is_turned_on_voice)
+    {
+        is_turned_on_voice = false;
+        Say("Voice is turned off");
+    }
+    else
+    {
+        is_turned_on_voice = true;
+        Say("Voice is turned on");
     }
 }
 

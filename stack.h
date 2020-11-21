@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,8 +21,8 @@ const unsigned  int MAX_SIZE_STACK = 2000000;
 const unsigned  int STANDARD_SIZE_STACK = 10;
 
 
-struct Node;
-typedef Node* Elem_t;
+struct AkiNode;
+typedef AkiNode* Elem_t;
 
 #ifdef MYSUPERPUPERDEBUG
 enum STACK_STATUS {STACK_IS_NOT_OK = 0, STACK_IS_OK = 1};

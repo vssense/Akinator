@@ -1,6 +1,21 @@
 #include "stack.h"
 
 //-------------------------------------------------------------
+//!  Creating stack struct
+//!
+//!  @return pointer to new stack
+//!  @note don't forget to Delete(stack)
+//-------------------------------------------------------------
+
+Stack* NewStack()
+{
+    Stack* stack = (Stack*)calloc(1, sizeof(Stack));
+    assert(stack);
+
+    return stack;
+}
+
+//-------------------------------------------------------------
 //!  Constructing the stack
 //!
 //!  @param [in] stack       pointer to a stack struct
@@ -9,6 +24,7 @@
 //!
 //!  @note use func by macro CONSTRUCT(you will get stack name)
 //-------------------------------------------------------------
+
 void Construct(Stack* stack, size_t capacity, char* name_stack)
 {
     assert(stack);
@@ -167,6 +183,22 @@ void Destroy(Stack* stack)
     stack->size_ = 0;
     stack->capacity_ = 0;
     stack->buffer_ = nullptr;
+}
+
+//-------------------------------------------------------------
+//!  Deleting stack struct
+//!
+//!  @param [in] stack       pointer to a stack struct
+//!
+//!  @note don't forget to use this function on the end of
+//!        program if you have used NewStack()
+//-------------------------------------------------------------
+
+void Delete(Stack* stack)
+{
+    assert(stack);
+
+    free(stack);
 }
 
 //-------------------------------------------------------------

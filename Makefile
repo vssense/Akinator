@@ -1,6 +1,6 @@
 options = -Wall -Wpedantic -Wextra
 
-input = Data.txt
+input = PMI.txt
 
 run : Akinator.exe
 	Akinator.exe $(input)

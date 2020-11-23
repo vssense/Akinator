@@ -58,6 +58,10 @@ struct AkiTree
     bool is_changed = false;
     const char* file_name = nullptr;
 
+    Stack* nodes_to_destruct = nullptr;
+
+    char* first_buf = nullptr;
+    char* second_buf = nullptr;
 };
 
 /////////////////////////////
@@ -68,6 +72,7 @@ AkiNode* NewNode                   (AkiTree* tree);
 void     Destruct                  (AkiTree* tree);
 void     DestructNodes             (AkiTree* tree, AkiNode* node);
 void     Delete                    (AkiTree* tree);
+void     DestructBuffers           (Stack* stack);
 void     TreeDump                  (AkiTree* tree);
 void     GetNames                  (char* dot_cmd, char* jpg_cmd);
 size_t   GetJPGNumber              ();
@@ -91,7 +96,7 @@ void     StartGame                 (AkiTree* tree, AkiNode* node);
 bool     GetAnswer                 ();
 void     EndGame                   (AkiTree* tree, AkiNode* node);
 void     GetNewDefinition          (AkiTree* tree, AkiNode* node);
-void     SetQuestion               (char* buffer, AkiNode* node);
+void     SetQuestion               (AkiTree* tree, char* buffer, AkiNode* node);
 void     PrintDefinition           (AkiTree* tree);
 AkiNode* Find                      (AkiTree* tree, AkiNode* node, char* definition);
 void     WriteDefinition           (AkiTree* tree, AkiNode* node);
@@ -110,6 +115,7 @@ void     ScanString                (char* buffer, size_t max_size);
 void     DeleteAllAfterChar        (char* buffer, char symbol);
 void     Say                       (const char* format, ...);
 void     FormatToSpeak             (char* buffer);
+void     CheckBuffer               (char** buffer);
 
 
 
@@ -211,6 +217,12 @@ void Construct(AkiTree* tree)
     tree->root = tree->NIL;
 
     tree->is_changed = false;
+
+    tree->nodes_to_destruct = NewStack();
+    CONSTRUCT(tree->nodes_to_destruct);
+
+    tree->first_buf = nullptr;
+    tree->second_buf = nullptr;
 }
 
 AkiNode* NewNode(AkiTree* tree)
@@ -233,6 +245,37 @@ void Destruct(AkiTree* tree)
     free(tree->root->data);
     DestructNodes(tree, tree->root);
     free(tree->NIL);
+
+    if (tree->first_buf)
+    {
+        free(tree->first_buf);
+        tree->first_buf = nullptr;
+    }
+
+    if (tree->second_buf)
+    {
+        free(tree->second_buf);
+        tree->second_buf = nullptr;
+    }
+
+    DestructBuffers(tree->nodes_to_destruct);
+
+    Destroy(tree->nodes_to_destruct);
+    Delete(tree->nodes_to_destruct);
+}
+
+void DestructBuffers(Stack* stack)
+{
+    assert(stack);
+
+    while (stack->size_ > 0)
+    {
+        AkiNode* node = top(stack);
+        assert(node->data);
+        free(node->data);
+
+        pop(stack);
+    }
 }
 
 void Delete(AkiTree* tree)
@@ -571,6 +614,8 @@ void GetNewDefinition(AkiTree* tree, AkiNode* node)
     node->left->data = node->data;
     node->right->data = definition;
 
+    push(tree->nodes_to_destruct, node->right);
+
     Say("What are differences between %s and %s?\n", 
             node->right->data, node->left->data);
     Say("%s (is) ...\n", node->right->data);
@@ -578,14 +623,14 @@ void GetNewDefinition(AkiTree* tree, AkiNode* node)
     char* buffer = (char*)calloc(ANSWER_SIZE, sizeof(char));
     ScanString(buffer, ANSWER_SIZE);
     
-    SetQuestion(buffer, node);
+    SetQuestion(tree, buffer, node);
 
     tree->is_changed = true;
 
     Say("Ok, you won, but now I know this word\n");
 }
 
-void SetQuestion(char* buffer, AkiNode* node)
+void SetQuestion(AkiTree* tree, char* buffer, AkiNode* node)
 { 
     assert(buffer);
     assert(node);
@@ -596,11 +641,16 @@ void SetQuestion(char* buffer, AkiNode* node)
         node->right->data = node->left->data;
         node->left->data = tmp;
         node->data = buffer + 4;
+
+        pop(tree->nodes_to_destruct);
+        push(tree->nodes_to_destruct, node->left);
     }
     else
     {
         node->data = buffer;
     }
+
+    push(tree->nodes_to_destruct, node);
 }
 
 void PrintDefinition(AkiTree* tree)
@@ -608,10 +658,11 @@ void PrintDefinition(AkiTree* tree)
     assert(tree);
 
     Say("Print word, please\n");
-    char* definition = (char*)calloc(DEFINITION_SIZE, sizeof(char));
-    ScanString(definition, DEFINITION_SIZE);
+    //char* definition = (char*)calloc(DEFINITION_SIZE, sizeof(char));
+    CheckBuffer(&tree->first_buf);
+    ScanString(tree->first_buf, DEFINITION_SIZE);
    
-    AkiNode* tmp = Find(tree, tree->root, definition);
+    AkiNode* tmp = Find(tree, tree->root, tree->first_buf);
 
     if (tmp == tree->NIL)
     {
@@ -621,7 +672,6 @@ void PrintDefinition(AkiTree* tree)
     {
         WriteDefinition(tree, tmp);
     }
-    free(definition);
 }
 
 AkiNode* Find(AkiTree* tree, AkiNode* node, char* definition)
@@ -634,7 +684,7 @@ AkiNode* Find(AkiTree* tree, AkiNode* node, char* definition)
         return tree->NIL;
     }
 
-    if (strcmp(node->data, definition) == 0 && 
+    if (strcmpi(node->data, definition) == 0 && 
         (node->right == tree->NIL && node->left == tree->NIL))
     {
         return node;
@@ -694,24 +744,24 @@ void CompareWords(AkiTree* tree)
     Say("print two words with enter, please\n");
     
     printf("first: ");  
-    char* definition1 = (char*)calloc(DEFINITION_SIZE, sizeof(char));
-    ScanString(definition1, DEFINITION_SIZE);
+    CheckBuffer(&tree->first_buf);
+    ScanString(tree->first_buf, DEFINITION_SIZE);
     
     printf("second: ");
-    char* definition2 = (char*)calloc(DEFINITION_SIZE, sizeof(char));
-    ScanString(definition2, DEFINITION_SIZE);
+    CheckBuffer(&tree->second_buf);
+    ScanString(tree->second_buf, DEFINITION_SIZE);
     
-    AkiNode* tmp1 = Find(tree, tree->root, definition1);
+    AkiNode* tmp1 = Find(tree, tree->root, tree->first_buf);
     if (tmp1 == tree->NIL)
     {
-        Say("I do not know what is %s\n", definition1);
+        Say("I do not know what is %s\n", tree->first_buf);
         return;
     }
 
-    AkiNode* tmp2 = Find(tree, tree->root, definition2);
+    AkiNode* tmp2 = Find(tree, tree->root, tree->second_buf);
     if (tmp2 == tree->NIL)
     {
-        Say("I do not know what is %s\n", definition2);
+        Say("I do not know what is %s\n", tree->second_buf);
         return;
     }   
 
@@ -723,12 +773,10 @@ void CompareWords(AkiTree* tree)
     FillStack(&stack1, tree, tmp1);
     FillStack(&stack2, tree, tmp2);
 
-    PrintDifferences(&stack1, &stack2, definition1, definition2);
+    PrintDifferences(&stack1, &stack2, tree->first_buf, tree->second_buf);
 
     Destroy(&stack1);
     Destroy(&stack2);
-    free(definition1);
-    free(definition2);
 }
 
 void PrintDifferences(Stack* stack1, Stack* stack2, char* definition1, char* definition2)
@@ -900,4 +948,15 @@ void FormatToSpeak(char* buffer)
         buffer[pos++] = buffer[i];
     }
     buffer[pos] = '\0';
+}
+
+void CheckBuffer(char** buffer)
+{
+    if (*buffer != nullptr)
+    {
+        return;
+    }
+
+    *buffer = (char*)calloc(DEFINITION_SIZE, sizeof(char));
+    assert(*buffer);
 }

@@ -15,7 +15,25 @@
 {
 "your life"
 {
+"govnocode"
+{
+"know more that 30 words"
+{
+"works with first time"
+{
+"c++"
+}
+{
+"Arseniy"
+}
+}
+{
+"Yariks Akinator"
+}
+}
+{
 "maincraft"
+}
 }
 {
 "not alive"
@@ -110,7 +128,13 @@
 {
 "in moscow"
 {
+"works for O(1)"
+{
 "hach palatka"
+}
+{
+"ICPC"
+}
 }
 {
 "animal"
@@ -188,7 +212,13 @@
 {
 "lizard-alike"
 {
+"being speedrun"
+{
 "skyrim"
+}
+{
+"creator of this akinator"
+}
 }
 {
 "elf"
@@ -217,10 +247,16 @@
 {
 "lack of brains"
 {
-"dolbojob"
+"can be drowned"
+{
+"ship"
 }
 {
-"áontinues on musatych"
+"dolbojob"
+}
+}
+{
+"continues on musatych"
 {
 "sleep"
 }

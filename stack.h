@@ -50,6 +50,7 @@ struct Stack
     size_t capacity_ = 0;
     size_t size_ = 0;
     Elem_t* buffer_ = nullptr;
+    
     #ifdef MYSUPERPUPERDEBUG
     char* name_stack_ = nullptr;
     int hash_ = 0;
@@ -58,12 +59,14 @@ struct Stack
     #endif
 };
 
+Stack*       NewStack      ();
 void         Construct     (Stack* stack, size_t size, char* name_stack);
 void         push          (Stack* stack, Elem_t value);
 Elem_t       top           (Stack* stack);
 void         pop           (Stack* stack);
 void         clear         (Stack* stack);
 void         Destroy       (Stack* stack);
+void         Delete        (Stack* stack);
 void         CheckBuffer   (Stack* stack);
 void         reallocateUp  (Stack* stack, size_t size_in_bytes);
 void         reallocateDown(Stack* stack, size_t size_in_bytes);

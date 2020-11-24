@@ -5,7 +5,6 @@
 //! - for mentoring my code and for saying it is shit
 //-------------------------------------------------------------------
 
-
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -63,6 +62,8 @@ struct AkiTree
     char* first_buf = nullptr;
     char* second_buf = nullptr;
 };
+
+
 
 /////////////////////////////
 //Binary tree
@@ -182,6 +183,7 @@ int main(const int argc, const char* argv[])
             {
                 printf("Goodbye!\n");
                 Destruct(tree);
+                Delete(tree);
                 return 0;
                 break;
             }
@@ -241,8 +243,8 @@ AkiNode* NewNode(AkiTree* tree)
 void Destruct(AkiTree* tree)
 {
     assert(tree);
- 
-    free(tree->root->data);
+
+    free(tree->root->data - 1);
     DestructNodes(tree, tree->root);
     free(tree->NIL);
 
@@ -522,25 +524,23 @@ void StartGame(AkiTree* tree, AkiNode* node)
     assert(tree);
     assert(node);
 
-    if (node->left == tree->NIL|| node->right == tree->NIL)
+    while (node->left != tree->NIL || node->right != tree->NIL)
     {
-        Say("Your word is %s\nAm I right?\n", node->data);
-        EndGame(tree, node);
-        return;
+        Say("Is it %s?\n", node->data);
+
+        bool answer = GetAnswer();
+
+        if (answer)
+        {
+            node = node->right;    
+        }
+        else
+        {
+            node = node->left;
+        }
     }
 
-    Say("Is it %s?\n", node->data);
-
-    bool answer = GetAnswer();
-
-    if (answer)
-    {
-        StartGame(tree, node->right);
-    }
-    else
-    {
-        StartGame(tree, node->left);
-    }
+    EndGame(tree, node);
 }
 
 bool GetAnswer()
@@ -575,6 +575,8 @@ void EndGame(AkiTree* tree, AkiNode* node)
 {
     assert(tree);
     assert(node);
+
+    Say("Your word is %s\nAm I right?\n", node->data);
 
     bool answer = GetAnswer();
 

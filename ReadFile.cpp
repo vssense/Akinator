@@ -114,8 +114,8 @@ void MakeLines(char* buffer, str* lines, size_t num_symbols)
 //!  reading file, making lines, calculating number of
 //!  lines and symbols
 //!
-//!  @param [in] hamlet  pointer to struct text
-//!  @param [in] in      file read from
+//!  @param [in] text  pointer to struct text
+//!  @param [in] in    file read from
 //!
 //!  @note text includes num_symbols, num_str,
 //!             pointer start and pointer lines
@@ -130,4 +130,21 @@ void ReadTextAndMakeLines(Text* text, FILE* in)
     text->num_str     = NumLines(text->buffer, text->num_symbols);
     text->lines       = (str*)calloc(text->num_str + 1, sizeof(str));
     MakeLines(text->buffer, text->lines, text->num_symbols);
+}
+
+//-----------------------------------------------
+//!  free all dynamic memory
+//!
+//!  @param [in] text  pointer to struct text
+//-----------------------------------------------
+
+void FreeAll(Text* text)
+{
+    assert(text->buffer);
+    assert(text->lines);
+
+    free(text->buffer);
+         text->buffer = nullptr;
+    free(text->lines);
+         text->lines = nullptr;
 }

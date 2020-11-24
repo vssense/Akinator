@@ -1,160 +1,184 @@
 digraph G{
 node [shape="record", style="filled", fillcolor="#AED8D5", color="#000000"]
-"00B11100"[shape="record", label="OOP?"]
-"00B11100":sw->"00B11218"[color="#210202", label="no"];
-"00B11218"[shape="record", label="halyava?"]
-"00B11218":sw->"00B18CE0"[color="#210202", label="no"];
-"00B18CE0"[shape="record", label="jopa?"]
-"00B18CE0":sw->"00B18E00"[color="#210202", label="no"];
-"00B18E00"[shape="record", label="wooden?"]
-"00B18E00":sw->"00B18E60"[color="#210202", label="no"];
-"00B18E60"[shape="record", label="cute?"]
-"00B18E60":sw->"00B18FC8"[color="#210202", label="no"];
-"00B18FC8"[shape="record", label="lack of brains?"]
-"00B18FC8":sw->"00B19148"[color="#210202", label="no"];
-"00B19148"[shape="record", label="áontinues on musatych?"]
-"00B19148":sw->"00B19208"[color="#210202", label="no"];
-"00B19208"[shape="pentagon", label="musatych"]
-"00B19148":se->"00B191F0"[color="#011504", label="yes"];
-"00B191F0"[shape="pentagon", label="sleep"]
-"00B18FC8":se->"00B19028"[color="#011504", label="yes"];
-"00B19028"[shape="pentagon", label="dolbojob"]
-"00B18E60":se->"00B18F50"[color="#011504", label="yes"];
-"00B18F50"[shape="record", label="drinkable?"]
-"00B18F50":sw->"00B18D28"[color="#210202", label="no"];
-"00B18D28"[shape="record", label="made of cloth?"]
-"00B18D28":sw->"00B18EC0"[color="#210202", label="no"];
-"00B18EC0"[shape="record", label="lizard-alike?"]
-"00B18EC0":sw->"00B18F80"[color="#210202", label="no"];
-"00B18F80"[shape="record", label="elf?"]
-"00B18F80":sw->"00B18F98"[color="#210202", label="no"];
-"00B18F98"[shape="record", label="this?"]
-"00B18F98":sw->"00B18FB0"[color="#210202", label="no"];
-"00B18FB0"[shape="record", label="material?"]
-"00B18FB0":sw->"00B18FF8"[color="#210202", label="no"];
-"00B18FF8"[shape="pentagon", label="segment-tree"]
-"00B18FB0":se->"00B18FE0"[color="#011504", label="yes"];
-"00B18FE0"[shape="pentagon", label="poltorashka"]
-"00B18F98":se->"00B19010"[color="#011504", label="yes"];
-"00B19010"[shape="pentagon", label="Akinator"]
-"00B18F80":se->"00B18F68"[color="#011504", label="yes"];
-"00B18F68"[shape="pentagon", label="legolas"]
-"00B18EC0":se->"00B18ED8"[color="#011504", label="yes"];
-"00B18ED8"[shape="pentagon", label="skyrim"]
-"00B18D28":se->"00B18E90"[color="#011504", label="yes"];
-"00B18E90"[shape="pentagon", label="tapestry"]
-"00B18F50":se->"00B18E78"[color="#011504", label="yes"];
-"00B18E78"[shape="pentagon", label="coffee"]
-"00B18E00":se->"00B18E30"[color="#011504", label="yes"];
-"00B18E30"[shape="record", label="could be prayed on?"]
-"00B18E30":sw->"00B18D10"[color="#210202", label="no"];
-"00B18D10"[shape="pentagon", label="door"]
-"00B18E30":se->"00B18E48"[color="#011504", label="yes"];
-"00B18E48"[shape="pentagon", label="wooden statuette of raigor"]
-"00B18CE0":se->"00B18DD0"[color="#011504", label="yes"];
-"00B18DD0"[shape="record", label="hospitality?"]
-"00B18DD0":sw->"00B18D70"[color="#210202", label="no"];
-"00B18D70"[shape="record", label="human resembling?"]
-"00B18D70":sw->"00B18F20"[color="#210202", label="no"];
-"00B18F20"[shape="record", label="delicious food?"]
-"00B18F20":sw->"00B18E18"[color="#210202", label="no"];
-"00B18E18"[shape="record", label="lives with you?"]
-"00B18E18":sw->"00B18C80"[color="#210202", label="no"];
-"00B18C80"[shape="record", label="human?"]
-"00B18C80":sw->"00B18CF8"[color="#210202", label="no"];
-"00B18CF8"[shape="pentagon", label="staty"]
-"00B18C80":se->"00B18CB0"[color="#011504", label="yes"];
-"00B18CB0"[shape="pentagon", label="ivanova"]
-"00B18E18":se->"00B18DE8"[color="#011504", label="yes"];
-"00B18DE8"[shape="pentagon", label="tarakan"]
-"00B18F20":se->"00B18F38"[color="#011504", label="yes"];
-"00B18F38"[shape="pentagon", label="shaverma"]
-"00B18D70":se->"00B18C68"[color="#011504", label="yes"];
-"00B18C68"[shape="record", label="passed session?"]
-"00B18C68":sw->"00B18D88"[color="#210202", label="no"];
-"00B18D88"[shape="record", label="usefull?"]
-"00B18D88":sw->"00B18DB8"[color="#210202", label="no"];
-"00B18DB8"[shape="pentagon", label="B05-032"]
-"00B18D88":se->"00B18F08"[color="#011504", label="yes"];
-"00B18F08"[shape="pentagon", label="fridge"]
-"00B18C68":se->"00B18DA0"[color="#011504", label="yes"];
-"00B18DA0"[shape="pentagon", label="session"]
-"00B18DD0":se->"00B18EF0"[color="#011504", label="yes"];
-"00B18EF0"[shape="record", label="in moscow?"]
-"00B18EF0":sw->"00B18CC8"[color="#210202", label="no"];
-"00B18CC8"[shape="record", label="animal?"]
-"00B18CC8":sw->"00B18EA8"[color="#210202", label="no"];
-"00B18EA8"[shape="pentagon", label="kirov"]
-"00B18CC8":se->"00B18D58"[color="#011504", label="yes"];
-"00B18D58"[shape="pentagon", label="chupocabra"]
-"00B18EF0":se->"00B18C98"[color="#011504", label="yes"];
-"00B18C98"[shape="pentagon", label="hach palatka"]
-"00B11218":se->"00B11350"[color="#011504", label="yes"];
-"00B11350"[shape="record", label="2D?"]
-"00B11350":sw->"00B11380"[color="#210202", label="no"];
-"00B11380"[shape="record", label="adequate?"]
-"00B11380":sw->"00B11320"[color="#210202", label="no"];
-"00B11320"[shape="record", label="made from cardboard?"]
-"00B11320":sw->"00B11248"[color="#210202", label="no"];
-"00B11248"[shape="record", label="drunk?"]
-"00B11248":sw->"00B18D40"[color="#210202", label="no"];
-"00B18D40"[shape="pentagon", label="arkasha"]
-"00B11248":se->"00B112F0"[color="#011504", label="yes"];
-"00B112F0"[shape="record", label="always drunk?"]
-"00B112F0":sw->"00B11278"[color="#210202", label="no"];
-"00B11278"[shape="pentagon", label="RT"]
-"00B112F0":se->"00B11308"[color="#011504", label="yes"];
-"00B11308"[shape="pentagon", label="MTUSI"]
-"00B11320":se->"00B112C0"[color="#011504", label="yes"];
-"00B112C0"[shape="record", label="has windows?"]
-"00B112C0":sw->"00B11230"[color="#210202", label="no"];
-"00B11230"[shape="pentagon", label="box"]
-"00B112C0":se->"00B11200"[color="#011504", label="yes"];
-"00B11200"[shape="pentagon", label="hostel"]
-"00B11380":se->"00B113B0"[color="#011504", label="yes"];
-"00B113B0"[shape="record", label="vedet algosy?"]
-"00B113B0":sw->"00B112D8"[color="#210202", label="no"];
-"00B112D8"[shape="pentagon", label="algosy"]
-"00B113B0":se->"00B113C8"[color="#011504", label="yes"];
-"00B113C8"[shape="pentagon", label="artur"]
-"00B11350":se->"00B112A8"[color="#011504", label="yes"];
-"00B112A8"[shape="pentagon", label="oneme"]
-"00B11100":se->"00B11118"[color="#011504", label="yes"];
-"00B11118"[shape="record", label="loves algosi?"]
-"00B11118":sw->"00B104C8"[color="#210202", label="no"];
-"00B104C8"[shape="record", label="old?"]
-"00B104C8":sw->"00B11290"[color="#210202", label="no"];
-"00B11290"[shape="pentagon", label="mesherin"]
-"00B104C8":se->"00B104E0"[color="#011504", label="yes"];
-"00B104E0"[shape="record", label="tries to hide everything?"]
-"00B104E0":sw->"00B10510"[color="#210202", label="no"];
-"00B10510"[shape="record", label="can die?"]
-"00B10510":sw->"00B11368"[color="#210202", label="no"];
-"00B11368"[shape="record", label="alive?"]
-"00B11368":sw->"00B11398"[color="#210202", label="no"];
-"00B11398"[shape="pentagon", label="java"]
-"00B11368":se->"00B11338"[color="#011504", label="yes"];
-"00B11338"[shape="pentagon", label="ded"]
-"00B10510":se->"00B11260"[color="#011504", label="yes"];
-"00B11260"[shape="pentagon", label="IVT"]
-"00B104E0":se->"00B104F8"[color="#011504", label="yes"];
-"00B104F8"[shape="pentagon", label="encapsulation"]
-"00B11118":se->"00B11130"[color="#011504", label="yes"];
-"00B11130"[shape="record", label="has tail?"]
-"00B11130":sw->"00B10FC8"[color="#210202", label="no"];
-"00B10FC8"[shape="record", label="your life?"]
-"00B10FC8":sw->"00B10FF8"[color="#210202", label="no"];
-"00B10FF8"[shape="record", label="not alive?"]
-"00B10FF8":sw->"00B104B0"[color="#210202", label="no"];
-"00B104B0"[shape="pentagon", label="nelena"]
-"00B10FF8":se->"00B11010"[color="#011504", label="yes"];
-"00B11010"[shape="pentagon", label="inheritance"]
-"00B10FC8":se->"00B10FE0"[color="#011504", label="yes"];
-"00B10FE0"[shape="pentagon", label="maincraft"]
-"00B11130":se->"00B10F80"[color="#011504", label="yes"];
-"00B10F80"[shape="record", label="fast?"]
-"00B10F80":sw->"00B10FB0"[color="#210202", label="no"];
-"00B10FB0"[shape="pentagon", label="python"]
-"00B10F80":se->"00B10F98"[color="#011504", label="yes"];
-"00B10F98"[shape="pentagon", label="Ilya Stepanov"]
+"0000000002806d30"[shape="record", label="OOP?"]
+"0000000002806d30":sw->"000000000103add0"[color="#210202", label="no"];
+"000000000103add0"[shape="record", label="halyava?"]
+"000000000103add0":sw->"000000000103b2d0"[color="#210202", label="no"];
+"000000000103b2d0"[shape="record", label="jopa?"]
+"000000000103b2d0":sw->"000000000103b600"[color="#210202", label="no"];
+"000000000103b600"[shape="record", label="wooden?"]
+"000000000103b600":sw->"000000000103b480"[color="#210202", label="no"];
+"000000000103b480"[shape="record", label="cute?"]
+"000000000103b480":sw->"000000000103bc60"[color="#210202", label="no"];
+"000000000103bc60"[shape="record", label="lack of brains?"]
+"000000000103bc60":sw->"000000000103bcf0"[color="#210202", label="no"];
+"000000000103bcf0"[shape="record", label="continues on musatych?"]
+"000000000103bcf0":sw->"000000000103b990"[color="#210202", label="no"];
+"000000000103b990"[shape="pentagon", label="musatych"]
+"000000000103bcf0":se->"000000000103be40"[color="#011504", label="yes"];
+"000000000103be40"[shape="pentagon", label="sleep"]
+"000000000103bc60":se->"000000000103ba50"[color="#011504", label="yes"];
+"000000000103ba50"[shape="record", label="can be drowned?"]
+"000000000103ba50":sw->"000000000103ba80"[color="#210202", label="no"];
+"000000000103ba80"[shape="pentagon", label="dolbojob"]
+"000000000103ba50":se->"000000000103bf00"[color="#011504", label="yes"];
+"000000000103bf00"[shape="pentagon", label="ship"]
+"000000000103b480":se->"000000000103b510"[color="#011504", label="yes"];
+"000000000103b510"[shape="record", label="drinkable?"]
+"000000000103b510":sw->"000000000103b0c0"[color="#210202", label="no"];
+"000000000103b0c0"[shape="record", label="made of cloth?"]
+"000000000103b0c0":sw->"000000000103b960"[color="#210202", label="no"];
+"000000000103b960"[shape="record", label="lizard-alike?"]
+"000000000103b960":sw->"000000000103ba20"[color="#210202", label="no"];
+"000000000103ba20"[shape="record", label="elf?"]
+"000000000103ba20":sw->"000000000103bed0"[color="#210202", label="no"];
+"000000000103bed0"[shape="record", label="this?"]
+"000000000103bed0":sw->"000000000103bb70"[color="#210202", label="no"];
+"000000000103bb70"[shape="record", label="material?"]
+"000000000103bb70":sw->"000000000103bab0"[color="#210202", label="no"];
+"000000000103bab0"[shape="pentagon", label="segment-tree"]
+"000000000103bb70":se->"000000000103b780"[color="#011504", label="yes"];
+"000000000103b780"[shape="pentagon", label="poltorashka"]
+"000000000103bed0":se->"000000000103b7b0"[color="#011504", label="yes"];
+"000000000103b7b0"[shape="pentagon", label="Akinator"]
+"000000000103ba20":se->"000000000103bea0"[color="#011504", label="yes"];
+"000000000103bea0"[shape="pentagon", label="legolas"]
+"000000000103b960":se->"000000000103bdb0"[color="#011504", label="yes"];
+"000000000103bdb0"[shape="record", label="being speedrun?"]
+"000000000103bdb0":sw->"000000000103b9f0"[color="#210202", label="no"];
+"000000000103b9f0"[shape="pentagon", label="creator of this akinator"]
+"000000000103bdb0":se->"000000000103bcc0"[color="#011504", label="yes"];
+"000000000103bcc0"[shape="pentagon", label="skyrim"]
+"000000000103b0c0":se->"000000000103bb40"[color="#011504", label="yes"];
+"000000000103bb40"[shape="pentagon", label="tapestry"]
+"000000000103b510":se->"000000000103b060"[color="#011504", label="yes"];
+"000000000103b060"[shape="pentagon", label="coffee"]
+"000000000103b600":se->"000000000103b3c0"[color="#011504", label="yes"];
+"000000000103b3c0"[shape="record", label="could be prayed on?"]
+"000000000103b3c0":sw->"000000000103b420"[color="#210202", label="no"];
+"000000000103b420"[shape="pentagon", label="door"]
+"000000000103b3c0":se->"000000000103b030"[color="#011504", label="yes"];
+"000000000103b030"[shape="pentagon", label="wooden statuette of raigor"]
+"000000000103b2d0":se->"000000000103b570"[color="#011504", label="yes"];
+"000000000103b570"[shape="record", label="hospitality?"]
+"000000000103b570":sw->"000000000103b300"[color="#210202", label="no"];
+"000000000103b300"[shape="record", label="human resembling?"]
+"000000000103b300":sw->"000000000103b090"[color="#210202", label="no"];
+"000000000103b090"[shape="record", label="delicious food?"]
+"000000000103b090":sw->"000000000103b5d0"[color="#210202", label="no"];
+"000000000103b5d0"[shape="record", label="lives with you?"]
+"000000000103b5d0":sw->"000000000103b330"[color="#210202", label="no"];
+"000000000103b330"[shape="record", label="human?"]
+"000000000103b330":sw->"000000000103b390"[color="#210202", label="no"];
+"000000000103b390"[shape="pentagon", label="staty"]
+"000000000103b330":se->"000000000103b4e0"[color="#011504", label="yes"];
+"000000000103b4e0"[shape="pentagon", label="ivanova"]
+"000000000103b5d0":se->"000000000103b1e0"[color="#011504", label="yes"];
+"000000000103b1e0"[shape="pentagon", label="tarakan"]
+"000000000103b090":se->"000000000103b000"[color="#011504", label="yes"];
+"000000000103b000"[shape="pentagon", label="shaverma"]
+"000000000103b300":se->"000000000103b660"[color="#011504", label="yes"];
+"000000000103b660"[shape="record", label="passed session?"]
+"000000000103b660":sw->"000000000103b180"[color="#210202", label="no"];
+"000000000103b180"[shape="record", label="usefull?"]
+"000000000103b180":sw->"000000000103b150"[color="#210202", label="no"];
+"000000000103b150"[shape="pentagon", label="B05-032"]
+"000000000103b180":se->"000000000103afa0"[color="#011504", label="yes"];
+"000000000103afa0"[shape="pentagon", label="fridge"]
+"000000000103b660":se->"000000000103b5a0"[color="#011504", label="yes"];
+"000000000103b5a0"[shape="pentagon", label="session"]
+"000000000103b570":se->"000000000103b450"[color="#011504", label="yes"];
+"000000000103b450"[shape="record", label="in moscow?"]
+"000000000103b450":sw->"000000000103b690"[color="#210202", label="no"];
+"000000000103b690"[shape="record", label="animal?"]
+"000000000103b690":sw->"000000000103b360"[color="#210202", label="no"];
+"000000000103b360"[shape="pentagon", label="kirov"]
+"000000000103b690":se->"000000000103afd0"[color="#011504", label="yes"];
+"000000000103afd0"[shape="pentagon", label="chupocabra"]
+"000000000103b450":se->"000000000103b6f0"[color="#011504", label="yes"];
+"000000000103b6f0"[shape="record", label="works for O(1)?"]
+"000000000103b6f0":sw->"000000000103b4b0"[color="#210202", label="no"];
+"000000000103b4b0"[shape="pentagon", label="ICPC"]
+"000000000103b6f0":se->"000000000103b120"[color="#011504", label="yes"];
+"000000000103b120"[shape="pentagon", label="hach palatka"]
+"000000000103add0":se->"000000000103ae90"[color="#011504", label="yes"];
+"000000000103ae90"[shape="record", label="2D?"]
+"000000000103ae90":sw->"000000000103abc0"[color="#210202", label="no"];
+"000000000103abc0"[shape="record", label="adequate?"]
+"000000000103abc0":sw->"000000000103b0f0"[color="#210202", label="no"];
+"000000000103b0f0"[shape="record", label="made from cardboard?"]
+"000000000103b0f0":sw->"000000000103b270"[color="#210202", label="no"];
+"000000000103b270"[shape="record", label="drunk?"]
+"000000000103b270":sw->"000000000103b2a0"[color="#210202", label="no"];
+"000000000103b2a0"[shape="pentagon", label="arkasha"]
+"000000000103b270":se->"000000000103b240"[color="#011504", label="yes"];
+"000000000103b240"[shape="record", label="always drunk?"]
+"000000000103b240":sw->"000000000103af70"[color="#210202", label="no"];
+"000000000103af70"[shape="pentagon", label="RT"]
+"000000000103b240":se->"000000000103b6c0"[color="#011504", label="yes"];
+"000000000103b6c0"[shape="pentagon", label="MTUSI"]
+"000000000103b0f0":se->"000000000103b540"[color="#011504", label="yes"];
+"000000000103b540"[shape="record", label="has windows?"]
+"000000000103b540":sw->"000000000103b630"[color="#210202", label="no"];
+"000000000103b630"[shape="pentagon", label="box"]
+"000000000103b540":se->"000000000103b3f0"[color="#011504", label="yes"];
+"000000000103b3f0"[shape="pentagon", label="hostel"]
+"000000000103abc0":se->"000000000103acb0"[color="#011504", label="yes"];
+"000000000103acb0"[shape="record", label="vedet algosy?"]
+"000000000103acb0":sw->"000000000103b1b0"[color="#210202", label="no"];
+"000000000103b1b0"[shape="pentagon", label="algosy"]
+"000000000103acb0":se->"000000000103b210"[color="#011504", label="yes"];
+"000000000103b210"[shape="pentagon", label="artur"]
+"000000000103ae90":se->"000000000103ae00"[color="#011504", label="yes"];
+"000000000103ae00"[shape="pentagon", label="oneme"]
+"0000000002806d30":se->"00000000028062f0"[color="#011504", label="yes"];
+"00000000028062f0"[shape="record", label="loves algosi?"]
+"00000000028062f0":sw->"000000000103ad70"[color="#210202", label="no"];
+"000000000103ad70"[shape="record", label="old?"]
+"000000000103ad70":sw->"000000000103ac80"[color="#210202", label="no"];
+"000000000103ac80"[shape="pentagon", label="mesherin"]
+"000000000103ad70":se->"000000000103aec0"[color="#011504", label="yes"];
+"000000000103aec0"[shape="record", label="tries to hide everything?"]
+"000000000103aec0":sw->"000000000103ab60"[color="#210202", label="no"];
+"000000000103ab60"[shape="record", label="can die?"]
+"000000000103ab60":sw->"000000000103ae30"[color="#210202", label="no"];
+"000000000103ae30"[shape="record", label="alive?"]
+"000000000103ae30":sw->"000000000103ae60"[color="#210202", label="no"];
+"000000000103ae60"[shape="pentagon", label="java"]
+"000000000103ae30":se->"000000000103ad40"[color="#011504", label="yes"];
+"000000000103ad40"[shape="pentagon", label="ded"]
+"000000000103ab60":se->"000000000103ac50"[color="#011504", label="yes"];
+"000000000103ac50"[shape="pentagon", label="IVT"]
+"000000000103aec0":se->"000000000103ada0"[color="#011504", label="yes"];
+"000000000103ada0"[shape="pentagon", label="encapsulation"]
+"00000000028062f0":se->"0000000002806320"[color="#011504", label="yes"];
+"0000000002806320"[shape="record", label="has tail?"]
+"0000000002806320":sw->"000000000103a9f0"[color="#210202", label="no"];
+"000000000103a9f0"[shape="record", label="your life?"]
+"000000000103a9f0":sw->"000000000103ad10"[color="#210202", label="no"];
+"000000000103ad10"[shape="record", label="not alive?"]
+"000000000103ad10":sw->"000000000103ac20"[color="#210202", label="no"];
+"000000000103ac20"[shape="pentagon", label="nelena"]
+"000000000103ad10":se->"000000000103ab90"[color="#011504", label="yes"];
+"000000000103ab90"[shape="pentagon", label="inheritance"]
+"000000000103a9f0":se->"000000000103aa20"[color="#011504", label="yes"];
+"000000000103aa20"[shape="record", label="govnocode?"]
+"000000000103aa20":sw->"000000000103abf0"[color="#210202", label="no"];
+"000000000103abf0"[shape="pentagon", label="maincraft"]
+"000000000103aa20":se->"000000000103aa50"[color="#011504", label="yes"];
+"000000000103aa50"[shape="record", label="know more that 30 words?"]
+"000000000103aa50":sw->"000000000103ace0"[color="#210202", label="no"];
+"000000000103ace0"[shape="pentagon", label="Yariks Akinator"]
+"000000000103aa50":se->"000000000103aa80"[color="#011504", label="yes"];
+"000000000103aa80"[shape="record", label="works with first time?"]
+"000000000103aa80":sw->"000000000103aae0"[color="#210202", label="no"];
+"000000000103aae0"[shape="pentagon", label="Arseniy"]
+"000000000103aa80":se->"000000000103aab0"[color="#011504", label="yes"];
+"000000000103aab0"[shape="pentagon", label="c++"]
+"0000000002806320":se->"0000000002806350"[color="#011504", label="yes"];
+"0000000002806350"[shape="record", label="fast?"]
+"0000000002806350":sw->"00000000028063b0"[color="#210202", label="no"];
+"00000000028063b0"[shape="pentagon", label="python"]
+"0000000002806350":se->"0000000002806380"[color="#011504", label="yes"];
+"0000000002806380"[shape="pentagon", label="Ilya Stepanov"]
 }

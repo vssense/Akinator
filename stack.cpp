@@ -174,12 +174,14 @@ void clear(Stack* stack)
 void Destroy(Stack* stack)
 {
     ASSERT_OK(stack);
+
     #ifdef MYSUPERPUPERDEBUG
-    free(stack->buffer_ - 1);
-    stack->hash_ = 0;
+        free(stack->buffer_ - 1);
+        stack->hash_ = 0;
     #else
-    free(stack->buffer_ - 1);
+        free(stack->buffer_);
     #endif
+    
     stack->size_ = 0;
     stack->capacity_ = 0;
     stack->buffer_ = nullptr;

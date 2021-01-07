@@ -4,46 +4,10 @@
 {
 "has tail"
 {
-"fast"
-{
-"Ilya Stepanov"
-}
-{
 "python"
-}
-}
-{
-"your life"
-{
-"govnocode"
-{
-"know more that 30 words"
-{
-"works with first time"
-{
-"c++"
-}
-{
-"Arseniy"
-}
-}
-{
-"Yariks Akinator"
-}
-}
-{
-"maincraft"
-}
-}
-{
-"not alive"
-{
-"inheritance"
 }
 {
 "nelena"
-}
-}
 }
 }
 {
@@ -54,19 +18,7 @@
 "encapsulation"
 }
 {
-"can die"
-{
-"IVT"
-}
-{
-"alive"
-{
 "ded"
-}
-{
-"java"
-}
-}
 }
 }
 {
@@ -84,13 +36,7 @@
 {
 "adequate"
 {
-"vedet algosy"
-{
-"artur"
-}
-{
 "algosy"
-}
 }
 {
 "made from cardboard"
@@ -104,25 +50,7 @@
 }
 }
 {
-"drunk"
-{
-"always drunk"
-{
-"MTUSI"
-}
-{
-"RT"
-}
-}
-{
-"can write"
-{
-"pen"
-}
-{
 "arkasha"
-}
-}
 }
 }
 }
@@ -134,13 +62,7 @@
 {
 "in moscow"
 {
-"works for O(1)"
-{
 "hach palatka"
-}
-{
-"ICPC"
-}
 }
 {
 "animal"
@@ -155,19 +77,7 @@
 {
 "human resembling"
 {
-"passed session"
-{
-"session"
-}
-{
-"usefull"
-{
-"fridge"
-}
-{
 "B05-032"
-}
-}
 }
 {
 "delicious food"
@@ -180,13 +90,7 @@
 "tarakan"
 }
 {
-"human"
-{
 "ivanova"
-}
-{
-"staty"
-}
 }
 }
 }
@@ -195,13 +99,7 @@
 {
 "wooden"
 {
-"could be prayed on"
-{
-"wooden statuette of raigor"
-}
-{
 "door"
-}
 }
 {
 "cute"
@@ -218,13 +116,7 @@
 {
 "lizard-alike"
 {
-"being speedrun"
-{
 "skyrim"
-}
-{
-"creator of this akinator"
-}
 }
 {
 "elf"
@@ -237,13 +129,7 @@
 "Akinator"
 }
 {
-"material"
-{
 "poltorashka"
-}
-{
-"segment-tree"
-}
 }
 }
 }
@@ -253,22 +139,10 @@
 {
 "lack of brains"
 {
-"can be drowned"
-{
-"ship"
-}
-{
 "dolbojob"
-}
-}
-{
-"continues on musatych"
-{
-"sleep"
 }
 {
 "musatych"
-}
 }
 }
 }

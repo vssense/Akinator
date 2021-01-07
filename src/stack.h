@@ -16,6 +16,7 @@
 #define ASSERT_OK
 #endif
 
+constexpr char* str = "A";
 const long long int CANARY = 0xBADC0DEDEAD;
 const unsigned  int MAX_SIZE_STACK = 2000000;
 const unsigned  int STANDARD_SIZE_STACK = 10;

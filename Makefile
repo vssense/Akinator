@@ -1,14 +1,20 @@
-g++ = C:\Users\vssen\Downloads\MinGW\bin\g++.exe
+g++ = g++
 
 options = -Wall -Wpedantic -Wextra
 
 input = PMI.txt
 
-run : Akinator.exe
-	Akinator.exe $(input)
+bin = bin
+src = src
 
-Akinator.exe : Akinator.cpp stack.o ReadFile.cpp
-	$(g++) Akinator.cpp stack.o -o Akinator.exe $(options) -w
+run : $(bin)\Akinator.exe
+	$(bin)\Akinator.exe $(input)
 
-stack.o : stack.cpp stack.h
-	$(g++) -c stack.cpp -o stack.o $(options) -w
+$(bin)\Akinator.exe : $(bin)\Akinator.o $(bin)\stack.o
+	$(g++) $(bin)\Akinator.o $(bin)\stack.o -o $(bin)\Akinator.exe $(options) -w
+
+$(bin)\stack.o : $(src)\stack.cpp $(src)\stack.h
+	$(g++) -c $(src)\stack.cpp -o $(bin)\stack.o $(options) -w
+
+$(bin)\Akinator.o : $(src)\Akinator.cpp $(src)\stack.h $(src)\ReadFile.cpp
+	$(g++) -c $(src)\Akinator.cpp -o $(bin)\Akinator.o $(options) -w

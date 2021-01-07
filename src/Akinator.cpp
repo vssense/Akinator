@@ -22,8 +22,8 @@ const size_t FILE_IS_NOT_EXIST = 0xFFFFFFFF;
 const size_t NUM_STR_LEN = 5;
 const size_t NOTATION = 10;
 
-const char* STANDARD_DATA_NAME = "AkinatorData.txt";
-const char* STANDARD_DOT_TXT_FILE_NAME = "Tree.txt";
+const char* STANDARD_DATA_NAME = "Data.txt";
+const char* STANDARD_DOT_TXT_FILE_NAME = "log\\tree.txt";
 
 #define AKI_SPEAK
 
@@ -61,6 +61,8 @@ struct AkiTree
 
     char* first_buf = nullptr;
     char* second_buf = nullptr;
+
+    char* buffer_start = nullptr;
 };
 
 
@@ -182,7 +184,9 @@ int main(const int argc, const char* argv[])
             case 'X':
             {
                 printf("Goodbye!\n");
+                printf("123\n");
                 Destruct(tree);
+                printf("123\n");
                 Delete(tree);
                 return 0;
                 break;
@@ -243,8 +247,7 @@ AkiNode* NewNode(AkiTree* tree)
 void Destruct(AkiTree* tree)
 {
     assert(tree);
-
-    free(tree->root->data - 1);
+    free(tree->buffer_start);
     DestructNodes(tree, tree->root);
     free(tree->NIL);
 
@@ -317,8 +320,8 @@ void TreeDump(AkiTree* tree)
     fclose(dump_file);
 
     char dot_cmd[DOT_CMD_SIZE] = "";
-    snprintf(dot_cmd, DOT_CMD_SIZE, "dot -Tjpg %s -o Dump", STANDARD_DOT_TXT_FILE_NAME);
-    char jpg_cmd[JPG_CMD_SIZE] = "start Dump";
+    snprintf(dot_cmd, DOT_CMD_SIZE, "dot -Tjpg %s -o log\\Dump", STANDARD_DOT_TXT_FILE_NAME);
+    char jpg_cmd[JPG_CMD_SIZE] = "start log\\Dump";
     
     GetNames(dot_cmd, jpg_cmd);
 
@@ -347,7 +350,7 @@ void GetNames(char* dot_cmd, char* jpg_cmd)
 
 size_t GetJPGNumber()
 {
-    FILE* numjpgs = fopen("numjpgs.txt", "r");
+    FILE* numjpgs = fopen("log\\numjpgs.txt", "r");
 
     size_t num = 0;
     
@@ -358,7 +361,7 @@ size_t GetJPGNumber()
 
     fclose(numjpgs);
 
-    numjpgs = fopen("numjpgs.txt", "w");
+    numjpgs = fopen("log\\numjpgs.txt", "w");
     fprintf(numjpgs, "%u", num + 1);
     fclose(numjpgs);
     
@@ -426,6 +429,7 @@ void GetData(AkiTree* tree, FILE* input_file)
 
     Text text = {};
     ReadTextAndMakeLines(&text, input_file);
+    tree->buffer_start = text.buffer;
 
     if (text.num_str == 0)
     {

@@ -1,8 +1,8 @@
 # Akinator
 
-> What he can?
+> What can he do?
 >
-> It is his menu :
+> Here's the main menu :
 >
 > ```
 >              MAIN MENU                 
@@ -18,19 +18,19 @@
 > Turn on/off voice                  : [T]
 > ```
 >
-> Before starting game make sure that Data.txt (or your standard data file) consist at least one definition in quotes 
+> Before starting game make sure that Data.txt (or your standard data file) consist of at least one definition in quotes 
 >
 > #### [G] Game
 >
-> >You should make a word and answer a questions about this word.
+> >You should make a word and answer questions about it.
 > >
-> >At the finish Akinator will try to guess your word.
+> >In the end Akinator will try to guess your word.
 > >
-> >Sometimes it doesn't know your word. In this case you should supplement database with this word:
+> >Sometimes it won't be able to guess correctly. In this case you should supplement database with this word:
 > >
-> >- Akinator will ask you to print your word.
-> >- Then it will ask you to print difference with word which he suggested.
-> >- You should supplement sentence "**Your word** (is) ...".
+> >- Akinator will ask you to type your word.
+> >- Then he will ask you to enter the difference between your word and the one he suggested.
+> >- You should finish sentence "**Your word** (is) ...".
 > >
 > >***But*** if Akinator already know this word with another definition, it will tell you about it and won't add
 > >
@@ -38,13 +38,13 @@
 >
 > #### [D] Print definition
 >
-> >You should make a word and print it.
+> >You should make a word and type it.
 > >
 > >If Akinator know this word, it will write his definition.
 >
 > #### [C] Compare two words
 >
-> >You should make two words and print it.
+> >You should make two words and type it.
 > >
 > >If Akinator know both this words, it will build a sentence, which will be consist of similarities and differences of your words.
 >

@@ -135,7 +135,7 @@ int main(const int argc, const char* argv[])
                "Start game(you shoud make a word)  : [G]\n"
                "Print definition                   : [D]\n"
                "Compare two words                  : [C]\n"
-               "Save Data                          : [S]\n"
+               "Save data                          : [S]\n"
                "Open akinator's tree(only with dot): [O]\n"
                "Load another data                  : [N]\n"
                "Exit                               : [X]\n", 

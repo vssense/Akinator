@@ -2,7 +2,7 @@ g++ = g++
 
 options = -Wall -Wpedantic -Wextra
 
-input = PMI.txt
+input = Data.txt
 
 bin = bin
 src = src
